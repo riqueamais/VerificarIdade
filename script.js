@@ -1,22 +1,24 @@
+const idadeInput = document.getElementById('idade');
+idadeInput.setAttribute("autocomplete", "off");
+idadeInput.addEventListener('click', function() {
+    this.value = '';
+});
+
 document.getElementById("form-idade").addEventListener("submit", function(event) {
     event.preventDefault();
 
     const idade = document.getElementById("idade").value;
-      if (idade === "") {
-        alert("Digite uma idade válida");
+    if (idade === "") {
+        return alert("Digite uma idade válida");
     } else if (idade < 18) {
-        alert("Você é menor de idade.");
+        return alert("Você é menor de idade.");
     } else if (idade >= 18 && idade < 60) {
-        alert("Você é adulto.");
+        return alert("Você é adulto.");
     } else {
-        alert("Você é idoso.");
+        return alert("Você é idoso.");
     }
-    document.getElementById("verificar-btn").addEventListener("click", function() {
-        document.getElementById("verificar-btn").classList.add("verificar-btn-active");
-      });
-      const idadeInput = document.getElementById('idade');
-idadeInput.addEventListener('input', function() {
-  this.value = this.value.replace(/[^0-9]/g, ''); // Remove todos os caracteres que não são números
 });
 
+idadeInput.addEventListener('input', function() {
+    this.value = this.value.replace(/[^0-9]/g, '');
 });
