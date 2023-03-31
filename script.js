@@ -14,5 +14,9 @@ document.getElementById("form-idade").addEventListener("submit", function(event)
     document.getElementById("verificar-btn").addEventListener("click", function() {
         document.getElementById("verificar-btn").classList.add("verificar-btn-active");
       });
-      
+      const idadeInput = document.getElementById('idade');
+idadeInput.addEventListener('input', function() {
+  this.value = this.value.replace(/[^0-9]/g, ''); // Remove todos os caracteres que não são números
+});
+
 });
